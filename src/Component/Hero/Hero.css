@@ -1,139 +1,323 @@
-.hero{
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../../assets/background.jpg');
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-}
 
-.hero-container{
-    width: 80%;
-}
-
-.my-name{
-    background-color: rgb(20, 20, 72);
-    display: inline-block;
-    font-size: 8.5px;
-    color: rgb(216, 216, 216);
-    padding:3px 8px;
-    border-radius: 5px;
-    text-align: center;
-    border: none;
-    font-weight: normal;
-    margin-bottom: 5px;
-    animation-delay: 0.3s;
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../../assets/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment:fixed;   /* 👈 THIS makes the image scroll slower */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  z-index: 1;
 }
 
 
 .heading{
-color: rgb(248, 248, 248);
-margin-bottom:15px ;
-animation-delay: 0.6s;
+  color: rgb(248, 248, 248);
+  margin-bottom: 8px;
+  font-size: 100px;
+  animation-delay: 0.6s;
 }
 
-.subheading{
-    color: skyblue;
-    margin-bottom: 15px;
-    margin-left: 50px;
-    animation-delay: 0.9s;
-}
+/* ---------- Contact Section ---------- */
+.in-touch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  animation-delay: 1.8s;
+  gap: 20px;
 
-.hero p{
-    color:rgb(216, 216, 216); 
-    line-height: 1.4;
-    padding-bottom: 2px;
-    animation-delay: 1.2s;
-}
-
-
-.in-touch{
-    display: flex;
-    margin-top: 30px;
-    animation-delay: 1.5s;
+  
 }
 
 .in-touch .btn{
-    margin-right: 20px;
+  width: 400px;
+  height: 50px;
+  background: color #64FFDA;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color:  rgb(52, 51, 51);
 }
 
-.social{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-     position: relative;
+ 
+.in-touch .btn:hover{
+  background-color: aliceblue;
+  color: rgb(1, 1, 67);
 }
 
-.social-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
+/* ---------- Social Section ---------- */
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 20px;
+  animation-delay: 2.4s;  
 }
 
-.social-name{
-    position: absolute;
-    bottom:-30px;
-    opacity: 0;
+.social-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-.social-container:hover .social-name{
-    opacity: 1;
-}
-    
-.social img{
-    width: 35px;
-    margin: 0 7px;
-    cursor: pointer;
-    transition: 0.3s;
+.social-name {
+  position: absolute;
+  bottom: -25px;
+  opacity: 0;
+  font-size: 12px;
+  color: #ddd;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.social img:hover{
-    opacity: 0.6;
+.social-container:hover .social-name {
+  opacity: 1;
+}
+
+.social img {
+  width: 38px;
+  margin: 0 7px;
+  cursor: pointer;
+  transition: 0.3s;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+.social img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* --- Curved wave at bottom of Hero --- */
+.hero-wave {
+  position: absolute;
+  bottom:-60px; /* ⬅️ pulls curve slightly upward */
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 0;
+}
+
+.hero-wave svg {
+  display: block;
+  width: 100%;
+  height: 400px;
+  position: relative;
 }
 
 
+/* Makes sure hero content stays above the wave */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
 
-/*-------media query-----*/
 
-@media(max-width: 900px){
-    .heading{
-         font-size: 27px;
-    }
-    .subheading{
-        font-size: 27px;
-    }
-    .hero p{
-        line-height:1.2 ;
-        margin-bottom: 5px;
-    }
-    .social img{
+/* ========================================================
+   LARGE SCREENS (≤1200px)
+======================================================== */
+@media (max-width: 1200px) {
+  .heading {
+    font-size: 80px;
+  }
+
+  .in-touch .btn {
+    width: 350px;
+    font-size: 18px;
+  }
+
+  .hero-wave svg {
+    height: 320px;
+  }
+}
+
+.subheading {
+  font-size: 40px !important; /* default for large screens */
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .subheading {
+    font-size: 32px !important;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .subheading {
+    font-size: 26px !important;
+  }
+}
+
+/* Mobile Medium */
+@media (max-width: 500px) {
+  .subheading {
+    font-size: 22px !important;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 380px) {
+  .subheading {
+    font-size: 18px !important;
+  }
+}
+
+/* ========================================================
+   MEDIUM SCREENS & TABLETS (≤992px)
+======================================================== */
+@media (max-width: 992px) {
+  .heading {
+    font-size: 70px;
+  }
+
+  .hero {
+    padding-top: 160px;
+    padding-bottom: 160px;
+    background-attachment: scroll; /* FIX background jitter on mobile */
+  }
+
+  .in-touch {
+    margin-top: 25px;
+    gap: 15px;
+  }
+
+  .social img {
+    width: 34px;
+  }
+
+  .hero-wave svg {
+    height: 280px;
+  }
+}
+
+/* ========================================================
+   TABLETS (≤768px)
+======================================================== */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 55px;
+  }
+
+  .in-touch .btn {
+    width: 280px;
+    height: 48px;
+    font-size: 17px;
+  }
+
+  .social img {
+    width: 32px;
+  }
+
+  .hero-wave {
+    bottom: -30px;
+  }
+
+  .hero-wave svg {
+    height: 240px;
+  }
+}
+
+/* ========================================================
+   LARGE PHONES (≤600px)
+======================================================== */
+@media (max-width: 600px) {
+  .heading {
+    font-size: 45px;
+  }
+
+  .hero {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+
+  .in-touch {
+    gap: 12px;
+  }
+
+  .in-touch .btn {
+    width: 250px;
+    height: 46px;
+    font-size: 16px;
+  }
+
+  .social img {
     width: 30px;
-    }
+  }
+
+  .hero-wave svg {
+    height: 200px;
+  }
 }
 
-@media(max-width: 600px){
-    .heading{
-         font-size: 25px;
-    }
-    .subheading{
-        font-size: 25px;
-}
+/* ========================================================
+   SMALL PHONES (≤480px)
+======================================================== */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 36px;
+  }
+
+  .hero {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  .in-touch .btn {
+    width: 220px;
+    height: 45px;
+    font-size: 15px;
+  }
+
+  .social {
+    gap: 15px;
+  }
+
+  .social img {
+    width: 28px;
+  }
+
+  .hero-wave svg {
+    height: 170px;
+  }
 }
 
-@media(max-width: 500px){
-    .heading{
-         font-size: 22px;
-    }
-    .subheading{
-        font-size: 22px;
-}
+/* ========================================================
+   EXTRA SMALL (≤360px)
+======================================================== */
+@media (max-width: 360px) {
+  .heading {
+    font-size: 30px;
+  }
 
-     .social img{
-    width: 35px;
-    margin-left: 8px;
-    }
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 100px;
+  }
+
+  .in-touch .btn {
+    width: 200px;
+    font-size: 14px;
+    height: 42px;
+  }
+
+  .social img {
+    width: 26px;
+  }
+
+  .hero-wave svg {
+    height: 150px;
+  }
 }

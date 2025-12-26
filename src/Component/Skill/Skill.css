@@ -8,6 +8,7 @@
   background: inherit;
 }
 
+/* Skill Card */
 .skills-group {
   display: flex;
   flex-direction: column;
@@ -20,38 +21,22 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Hover effect */
 .skills-group:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* Gradients: one for each group (based on nth-child) */
-.skills-group:nth-child(1) {
-  background: linear-gradient(145deg, #7ca5e2, #c3cfe2);
-}
-.skills-group:nth-child(2) {
-  background: linear-gradient(145deg, #fdfbfb, #ebedee);
-}
-.skills-group:nth-child(3) {
-  background: linear-gradient(145deg, #4f1818, #eaeaea);
-}
-.skills-group:nth-child(4) {
-  background: linear-gradient(145deg, #f3f9ff, #dbeeff);
-}
-.skills-group:nth-child(5) {
-  background: linear-gradient(145deg, #fffdfc, #f1f1f1);
-}
-.skills-group:nth-child(6) {
-  background: linear-gradient(145deg, #fefefe, #d6d6d6);
-}
-.skills-group:nth-child(7) {
-  background: linear-gradient(145deg, #f8f9fa, #497fb6);
-}
-.skills-group:nth-child(8) {
-  background: linear-gradient(145deg, #f5f5f5, #dcdcdc);
-}
+/* Gradients for each card */
+.skills-group:nth-child(1) { background: linear-gradient(145deg, #7ca5e2, #c3cfe2); }
+.skills-group:nth-child(2) { background: linear-gradient(145deg, #fdfbfb, #ebedee); }
+.skills-group:nth-child(3) { background: linear-gradient(145deg, #4f1818, #eaeaea); }
+.skills-group:nth-child(4) { background: linear-gradient(145deg, #f3f9ff, #dbeeff); }
+.skills-group:nth-child(5) { background: linear-gradient(145deg, #fffdfc, #f1f1f1); }
+.skills-group:nth-child(6) { background: linear-gradient(145deg, #fefefe, #d6d6d6); }
+.skills-group:nth-child(7) { background: linear-gradient(145deg, #f8f9fa, #497fb6); }
+.skills-group:nth-child(8) { background: linear-gradient(145deg, #f5f5f5, #dcdcdc); }
 
+/* Titles + List */
 .skills-group h3 {
   margin-bottom: 0.6rem;
   font-size: 1.2rem;
@@ -76,31 +61,74 @@
 }
 
 .skills-group li svg {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: rgb(45, 45, 132);
   transition: transform 0.2s ease;
 }
 
 .skills-group li:hover svg {
   transform: scale(1.2);
+ transform: rotate(180deg);
 }
 
-/* Responsive tweak for smaller phones */
-@media (max-width: 480px) {
+
+/* -----------------------------------------------------
+      RESPONSIVENESS
+------------------------------------------------------ */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .skills-section {
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
   .skills-group {
+    min-height: 220px;
     padding: 1rem;
-    min-height: unset;
   }
 
   .skills-group h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Large Phones */
+@media (max-width: 600px) {
+  .skills-section {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+  }
+
+  .skills-group {
+    min-height: 200px;
+  }
+
+  .skills-group h3 {
+    font-size: 1.05rem;
   }
 
   .skills-group li {
     font-size: 0.95rem;
   }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .skills-group {
+    min-height: unset;
+    padding: 0.9rem;
+  }
+
+  .skills-group h3 {
+    font-size: 0.95rem;
+  }
+
+  .skills-group li {
+    font-size: 0.9rem;
+  }
 
   .skills-group li svg {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }

@@ -1,56 +1,69 @@
-import React from 'react'
-import "./About.css"
-import myPic from '../../assets/my-image.jpg'
-import { BsChevronRight } from 'react-icons/bs';
-import FadeSlide from "../Fade-slide/fade-slide";
+import React from "react";
+import "./About.css";
+import myPic from "../../assets/my-image.jpeg"; // replace with your image
+import cvFile from "../../assets/Feranmi-Oyediran-CV.pdf";
 
 
 const About = () => {
   return (
-    <div className='about'>
-        <div className="about-img">
-         <FadeSlide direction='fade-left' delay={400}>
-        <img src={myPic} alt="my profile pic" />
-        </FadeSlide>
-        <FadeSlide direction='fade-left' delay={500}>
-        <button className='btn2'>More About Me</button>
-        </FadeSlide>
-      </div>
-
-      <div className="about-content">
-            <FadeSlide direction='fade-up' delay={400}>
-             <h2>
-              UI/UX Designer & Web Developer.
-            </h2>
-            </FadeSlide>
-             <FadeSlide direction='fade-up' delay={500}>
-            <p>Passionate frontend developer who loves building fast, user-friendly interfaces with clean, responsive design.</p>
-            </FadeSlide>
-            <div className="personal-details">
-                <ul className='section-a'>
-                    <FadeSlide direction='fade-up' delay={500}>
-                    <li><BsChevronRight className='bullet'/><strong>Birthday:</strong>  16 July 1998</li>
-                    <li><BsChevronRight className='bullet'/><strong>Linkedin:</strong>  www.linkedin.com/in/feranmi-oyediran</li>
-                    <li><BsChevronRight className='bullet'/><strong>Phone:</strong>  +234 810 950 0453</li>
-                    <li><BsChevronRight className='bullet'/><strong>City:</strong>  Ibadan, Nigeria</li>
-                    </FadeSlide>
-                </ul>
-                <ul className='section-b'>
-                    <FadeSlide direction='fade-up' delay={500}>
-                     <li><BsChevronRight className='bullet'/><strong>Age:</strong>  27</li>
-                     <li><BsChevronRight className='bullet'/><strong>Degree:</strong>  Bachelor of Arts</li>
-                     <li><BsChevronRight className='bullet'/><strong>Email:</strong>  oyediran904@gmail.com</li>
-                     <li><BsChevronRight className='bullet'/><strong>Freelance:</strong>  Available</li>
-                     </FadeSlide>
-                </ul>
+    <section className="about-section" id="about">
+      <div className="about-container">
+        {/* Left Side: Image */}
+        <div className="about-left">
+          <div className="image-wrapper">
+            <div className="image-border-black"></div>
+            <div className="image-frame">
+              <img src={myPic} alt="Feranmi Oyediran" />
+              <div className="experience-box">
+                <h2>6</h2>
+                <p>
+                  Years<br />Experience
+                </p>
+              </div>
             </div>
-            <FadeSlide direction='fade-up' delay={500}>
-            <p>Every pixel I push is backed by logic, creativity, and attention to user experience. I aim to create interfaces that feel as good as they look. Every component I build is tested for clarity, speed, and purpose.</p>
-            </FadeSlide>
+          </div>
         </div>
 
-    </div>
-  )
-}
+        {/* Right Side: Content */}
+        <div className="about-right">
+          <h2 className="about-heading">Introduction About Me</h2>
+          <p className="about-intro">
+            Passionate frontend developer who loves building fast, user-friendly
+            interfaces with clean, responsive design.
+          </p>
 
-export default About
+          <div className="about-details">
+            <ul>
+              <li><strong>Birthday:</strong> 16 July 1998</li>
+              <li><strong>Phone:</strong> +234 810 950 0453</li>
+              <li><strong>City:</strong> Ibadan, Nigeria</li>
+              <li><strong>Age:</strong> 27</li>
+              <li><strong>Degree:</strong> Bachelor of Arts</li>
+              <li><strong>Freelance:</strong> Available</li>
+            </ul>
+          </div>
+
+          <p className="about-summary">
+            Every pixel I push is backed by logic, creativity, and attention to
+            user experience. I aim to create interfaces that feel as good as they
+            look. Every component I build is tested for clarity, speed, and
+            purpose.
+          </p>
+
+          <div className="about-buttons">
+            <a
+            href="mailto:oyediranjay@gmail.com?subject=Hiring%20Inquiry&body=Hello%20Jay,"
+            className="btn hire"
+          >
+            Hire Me
+          </a>
+
+        <a href={cvFile} download target="_blank" rel="noopener noreferrer" className="btn download">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

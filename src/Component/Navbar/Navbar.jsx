@@ -1,20 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../Navbar/Navbar.css';
-import {
-  FaBars,
-  FaTimes,
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
-  FaGithub
-} from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [menuToggle, setMenuToggle] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
   const menuRef = useRef(null);
+  const lastScrollY = useRef(0);
 
   const handleToggle = () => setMenuToggle(!menuToggle);
+
+  // ⭐ Smooth scrolling function
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuToggle(false);
+  };
 
   // 🔁 Close menu when clicking outside
   useEffect(() => {
@@ -33,31 +36,40 @@ const Navbar = () => {
     };
   }, [menuToggle]);
 
+  // 🧠 Hide/Show navbar on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setShowNavbar(false); 
+      } else {
+        setShowNavbar(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${showNavbar ? 'show' : 'hide'}`}>
       <div className="logo fade-in">
-        <h3>JAYLORD</h3><h2>TECH</h2>
+        <h2><span>J</span>a y t e c h</h2>
       </div>
 
-      {/* Wrap nav in ref for outside click */}
       <ul
         ref={menuRef}
         className={`navbar-menu ${menuToggle ? '' : 'hide-nav'} fade-in`}
       >
-        <li onClick={() => setMenuToggle(false)}>Home</li>
-        <li onClick={() => setMenuToggle(false)}>About Me</li>
-        <li onClick={() => setMenuToggle(false)}>Skills</li>
-        <li onClick={() => setMenuToggle(false)}>Project</li>
-        <li onClick={() => setMenuToggle(false)}>Contact</li>
+        <li onClick={() => scrollToSection("home")}>Home</li>
+        <li onClick={() => scrollToSection("about")}>About</li>
+        <li onClick={() => scrollToSection("skills")}>Skills</li>
+        <li onClick={() => scrollToSection("portfolio")}>Portfolio</li>
+        <li onClick={() => scrollToSection("contact")}>Contact</li>
       </ul>
-
-      <div className="social-icon">
-        <FaFacebook />
-        <FaInstagram />
-        <FaLinkedin />
-        <FaGithub />
-        <FaTwitter />
-      </div>
 
       {menuToggle ? (
         <FaTimes onClick={handleToggle} className="toggle close-icon" />

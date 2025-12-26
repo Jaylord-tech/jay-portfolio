@@ -1,0 +1,276 @@
+.contact-section {
+  padding: 100px 0;
+  background: #0f0f0f;
+  color: white;
+}
+
+.contact-container {
+  width: 85%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+/* LEFT (form) */
+.contact-form-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form-card h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.contact-sub {
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+  opacity: 0.6;
+}
+
+.input-group textarea + label {
+  top: 20px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #ff007f;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  
+  padding: 0 6px;
+  font-size: 12px;
+  opacity: 1;
+}
+
+.contact-btn {
+  background: #ff007f;
+  border: none;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  transition: 0.5s;
+}
+
+.contact-btn:hover {
+  background:#64FFDA ;
+  color: #323232;
+}
+
+.contact-btn:active {
+  transform: scale(0.98);
+}
+
+/* RIGHT (Info card) */
+.contact-info-card {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-info-card h3 {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  font-size: 17px;
+}
+
+.info-item svg {
+  color:#64FFDA;
+  font-size: 20px;
+  transform: rotate(0deg);
+}
+
+.follow-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.social-row {
+  display: flex;
+  gap: 20px;
+  font-size: 22px;
+}
+
+.social-row svg {
+  cursor: pointer;
+  transition: 0.3s;
+  color:#64FFDA;
+  transform: rotate(0deg);
+}
+
+.social-row svg:hover {
+  color: #ff007f;
+  transform: scale(1.1);
+}
+
+/* ================================
+   RESPONSIVE: LARGE TABLETS (≤1024px)
+================================ */
+@media (max-width: 1024px) {
+  .contact-container {
+    width: 90%;
+    gap: 40px;
+  }
+
+  .contact-form-card,
+  .contact-info-card {
+    padding: 30px;
+  }
+
+  .contact-form-card h2 {
+    font-size: 28px;
+  }
+}
+
+/* ================================
+   RESPONSIVE: TABLETS (≤768px)
+================================ */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .contact-section {
+    padding: 70px 0;
+  }
+
+  .contact-form-card h2 {
+    font-size: 26px;
+  }
+
+  .contact-info-card h3 {
+    font-size: 22px;
+  }
+
+  .info-item {
+    font-size: 16px;
+    gap: 12px;
+  }
+}
+
+/* ================================
+   RESPONSIVE: SMALL DEVICES (≤600px)
+================================ */
+@media (max-width: 600px) {
+  .contact-form-card,
+  .contact-info-card {
+    padding: 25px;
+  }
+
+  .input-group input,
+  .input-group textarea {
+    padding: 10px 12px;
+  }
+
+  .contact-btn {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  .social-row {
+    gap: 15px;
+    font-size: 20px;
+  }
+}
+
+/* ================================
+   RESPONSIVE: EXTRA SMALL (≤480px)
+================================ */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-form-card h2 {
+    font-size: 22px;
+  }
+
+  .contact-info-card h3 {
+    font-size: 20px;
+  }
+
+  .info-item {
+    font-size: 15px;
+  }
+
+  .social-row {
+    gap: 12px;
+    font-size: 18px;
+  }
+}
+
+/* ================================
+   RESPONSIVE: TINY DEVICES (≤360px)
+================================ */
+@media (max-width: 360px) {
+  .contact-container {
+    width: 92%;
+  }
+
+  .contact-form-card,
+  .contact-info-card {
+    padding: 20px;
+  }
+
+  .contact-btn {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+
+  .input-group input,
+  .input-group textarea {
+    font-size: 14px;
+  }
+}

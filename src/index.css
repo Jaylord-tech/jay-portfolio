@@ -1,13 +1,22 @@
 *{
-  font-family: sans-serif, arial;
+  font-family: 'Poppins ', sans-serif;
   margin: 0;
   box-sizing: border-box;
+  letter-spacing: 2px;
 }
 
-body{
-  background-image: linear-gradient(55deg, rgb(141, 218, 248),rgb(77, 77, 244));;
-  color: rgb(33, 31, 33);
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  margin: 0;
+background: #3f3f3f;
+  font-family: 'Poppins ', sans-serif;
+  letter-spacing: 2px;
+}
+
+
 
 .container{
   padding-left: 9%;
@@ -22,8 +31,8 @@ body{
   font-size: 15px;
   cursor: pointer;
   font-weight: 600;
-  background: rgb(51, 51, 175);
-  color: aliceblue;
+  background:#64FFDA ;
+  color: white;
   transition: 0.5s;
 }
 
@@ -36,7 +45,7 @@ body{
   cursor: pointer;
   font-weight: bold;
   color: navy;
-  transition: 0.5s;
+  transition: 2s;
 }
 .btn2:hover{
   background-color: navy;
@@ -52,11 +61,17 @@ body{
 
 .btn:active{ 
  background-color: rgb(107, 104, 104);
+ border-radius: 20px;
+
 }
 .btn2:active{ 
  background-color: rgb(41, 41, 233);
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
 
 button svg{
    vertical-align: middle;
@@ -64,7 +79,7 @@ button svg{
 }
 
 h1, h2, h3{
-  font-size: bold;
+font-weight: unset;
 }
 
 .fade-in{
@@ -108,6 +123,5 @@ animation: fade-in 0.5s linear forwards;
 }
 
 }
-
 
 

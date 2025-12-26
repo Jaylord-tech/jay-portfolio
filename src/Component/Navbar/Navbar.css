@@ -3,12 +3,26 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    padding: 20px 20px;
+    padding-left:8px;
+    padding-right: 8px;
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgb(10, 9, 12);
+    background-color: #3f3f3f;
     z-index: 100;
+    align-items: center;
+    transition: all 0.5s ease-in-out; 
+}
+
+.navbar.hide {
+  top: -80px;
+  opacity: 0;
+}
+
+/* 👇 Show normally */
+.navbar.show {
+  top: 0;
+  opacity: 1;
 }
 
  .logo {
@@ -17,19 +31,25 @@
      margin-left: 40px; 
       
 }
-.logo h3{
-     color: rgb(147, 55, 147);
-     font-family: 'Trebuchet MS';
-}
 .logo h2{
-    color: rgb(141, 103, 47);
-    font-family: 'Trebuchet MS';
+    font-family: 'Pacifico', 'cursive';
+  font-size: 25px;
+  color: wheat;
+}
+
+.logo h2 span{
+    font-family:'pacifico';
+    color:#64FFDA;
+    font-weight: bolder;
+    font-size: 50px;
+
 }
 
 .navbar ul li{
-    padding-left: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
     cursor: pointer;
-    font-weight: 600;
+    font-size: 17px;
     list-style: none;
     color:aliceblue ;
     display: inline-block;
@@ -37,7 +57,7 @@
 }
 
 .navbar ul li:hover{
-    color: #00BFFF;
+    color: #64FFDA;
 }
 .navbar ul li:active{
     color:aliceblue;
@@ -45,22 +65,11 @@
 
 .toggle{
     display: none;
+     transform: rotate(0deg);
 }
 
-.social-icon svg{
-    color:#00BFFF;
-    margin-left: 15px;
-    font-size: 25px;
-    cursor: pointer;
-    transition: 0.3s;
-}
 
-.social-icon svg:hover{
-    color: aliceblue;
-}
-.social-icon svg:active{
-    color: #00BFFF;
-}
+
 
 /*-----media query-------*/
 @media(max-width: 1300px){

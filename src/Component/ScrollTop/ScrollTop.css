@@ -1,0 +1,72 @@
+.scroll-top-btn {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  width: 48px;
+  height: 48px;
+  background: #ff007f;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Visible state */
+.scroll-top-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-top-btn:hover {
+  background: #ff4aa2;
+  transform: translateY(-4px);
+}
+
+/* FORCE ARROW TO FACE UP */
+.scroll-top-btn svg {
+  transform: rotate(0deg);
+}
+
+
+/* -----------------------------
+   RESPONSIVE SPACING
+------------------------------ */
+
+/* Tablets */
+@media (max-width: 850px) {
+  .scroll-top-btn {
+    bottom: 25px;
+    right: 25px;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* Large Phones */
+@media (max-width: 600px) {
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 450px) {
+  .scroll-top-btn {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
